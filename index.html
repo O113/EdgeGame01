@@ -37,9 +37,6 @@ this.anims.create ({
         });
     };
 
-    
-
-
 function checkPlayerMove(){
 if (cursors.left.isDown) {
     player.setVelocityX(-160);
@@ -81,17 +78,15 @@ if (cursors.up.isDown && player.body.touching.down) {
     function preload () {
         this.load.image('sky', '/assets/sky.png');
         this.load.image('ground','/assets/platform.png');
-        this.load.image('blocksprite', '/assets/bomb.png',
+        this.load.image('dude', '/assets/dude.png',
     { 
         frameWidth: 32, frameHeight: 48
     }
 );
     }
-    function create () {
+    function create () {    
 
         
-
-        this.physics.add.collider(player,platforms);
         this.add.image(400,300,'sky');
         createPlayer(); 
         platforms = this.physics.add.staticGroup();  
@@ -100,10 +95,11 @@ if (cursors.up.isDown && player.body.touching.down) {
         platforms.create(50,250, 'ground');
         platforms.create(750,220, 'ground');
 
-        player = this.physics.add.sprite(100,450,'blocksprite');
+        player = this.physics.add.sprite(100,450,'dude');
 
         player.setBounce(0.2);
         player.setCollideWorldBounds(true);
+        this.physics.add.collider(player,platforms);
     }
 
         function update ()

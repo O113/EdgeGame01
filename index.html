@@ -7,6 +7,7 @@
     <script src="/assets/scripts/input.js"></script>
     <script src="/assets/scripts/createPlayer.js"></script>
     <script src="/assets/scripts/createLevel.js"></script>
+    <script src="/assets/scripts/projectiles.js"></script>
     <style type="text/css">
     body {
         margin: 0;
@@ -35,11 +36,14 @@
         }
     };
     var player; 
-    var cursors; 
+    var cursors;
+    var arrow;  
 
     var game = new Phaser.Game(config);
 
     function preload () {
+
+        this.load.image('arrow', 'assets/art/img/arrow.png'); 
         this.load.image('sky', '/assets/sky.png');
         this.load.image('ground','/assets/art/tiles/stone_ground_tile.png');
         this.load.image('platform','/assets/platform.png');
@@ -47,7 +51,7 @@
     }
 
     function create () {
-
+    
     cursors = this.input.keyboard.createCursorKeys();
 
         this.add.image(512,384,'sky').setScale(2);
@@ -60,12 +64,14 @@
 
         createPlayer(this); 
 
-    };  
+    };
+
     player.setCollideWorldBounds(true);
 
         function update ()
     {   
         checkPlayerMove(); 
+        checkFire();
     }
 
 </script>

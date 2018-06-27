@@ -16,3 +16,11 @@ if (cursors.up.isDown && player.body.touching.down) {
     player.setVelocityY(-200);
     }
 };
+
+function checkFire()
+{
+    if (game.input.activePointer.isDown)
+    {
+        arrowShoot();
+    }
+}

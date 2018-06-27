@@ -21,6 +21,6 @@ function checkFire()
 {
     if (game.input.activePointer.isDown)
     {
-        arrowShoot();
+        
     }
 }

@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <title>First game</title>
     <script src="//cdn.jsdelivr.net/npm/phaser@3.1.1/dist/phaser.js"></script>
-    <script src="/assets/scripts/movement.js"></script>
+    <script src="/assets/scripts/input.js"></script>
+    <script src="/assets/scripts/createPlayer.js"></script>
     <style type="text/css">
     body {
         margin: 0;
@@ -32,20 +33,18 @@
             update: update
         }
     };
+    var player; 
+    var cursors; 
 
     var game = new Phaser.Game(config);
-    var cursors; 
 
     function preload () {
         this.load.image('sky', '/assets/sky.png');
         this.load.image('ground','/assets/art/tiles/stone_ground_tile.png');
         this.load.image('platform','/assets/platform.png');
-        this.load.image('blocksprite', '/assets/blocksprite.png',
-    { 
-        //frameWidth: 40, frameHeight: 60 
+        this.load.spritesheet('dude', '/assets/dude.png', { frameWidth: 32, frameHeight: 48 });
     }
-);
-    }
+
     function create () {
 
     cursors = this.input.keyboard.createCursorKeys();
@@ -60,16 +59,13 @@
         platforms.create(50,250, 'platform');
         platforms.create(750,220, 'platform');
 
-        player = this.physics.add.sprite(100,450,'blocksprite');
+        player = this.physics.add.sprite(100, 450, 'dude');
 
         createPlayer(this); 
 
-    this.physics.add.collider(player,platforms);
-
+    };  
     player.setCollideWorldBounds(true);
 
-    
-    }
         function update ()
     {   
         checkPlayerMove(); 

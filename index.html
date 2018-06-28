@@ -38,6 +38,11 @@
     var player; 
     var cursors;
     var arrow; 
+    var particle;
+    var counter = 0; 
+    var playerDirection = 1;
+    var canShoot = true;
+    var i = 0;   
 
     var game = new Phaser.Game(config);
 
@@ -50,15 +55,19 @@
         this.load.spritesheet('dude', '/assets/dude.png', { frameWidth: 32, frameHeight: 48 });
 
         this.load.image('arc', 'assets/art/img/arc.png');
+        this.load.image('particleWhiteCircle', 'assets/art/img/particleWhiteCircle.png'); 
+
+        
     }
 
     function create () {
-    
+        
     cursors = this.input.keyboard.createCursorKeys();
 
         this.add.image(512,384,'sky').setScale(2);
 
         platforms = this.physics.add.staticGroup();
+        particles = this.add.particles('particleWhiteCircle');
         
         createLevel1(); 
 
@@ -67,30 +76,66 @@
         createPlayer(this); 
         player.setCollideWorldBounds(true);
 
-    var particles = this.add.particles('arc');
+        var arrowEmitter = particles.createEmitter({
+        speed: 10, 
+        scaleX: { start: 1, end: 0 },
+        scaleY: { start: 0.1, end: 0 },
+        gravity: false,
+        });
+ 
+        this.cameras.main.startFollow(player);
+        };
+         
+        
 
-            var emitter = particles.createEmitter({
-                speedX: 100, 
-                scale: { start: 0.2, end: 0 },
-                gravity: false,
-});
-
-
-            var arrow = this.physics.add.image(400, 100, 'arrow');
-            console.log(arrow);
-            arrow.setCollideWorldBounds(true);
-            arrow.body.setAllowGravity(true); 
-            arrow.setVelocityX(800); 
-
-            emitter.startFollow(arrow);
-
-    };
-
-    
 
         function update ()
-    {   
-        checkPlayerMove(); 
+        {
+        
+        counter += 1;    
+        if (game.input.activePointer.isDown && canShoot)
+        {
+        arrow = this.physics.add.image(player.x, player.y, 'arrow');
+        arrow.setCollideWorldBounds(true);
+        arrow.body.setAllowGravity(false); 
+        arrow.setVelocityX(800 * playerDirection);
+        canShoot = false;
+
+
+        var arrowEmitter = particles.createEmitter({
+        speed: 10, 
+        scaleX: { start: 1, end: 0 },
+        scaleY: { start: 0.1, end: 0 },
+        gravity: false,
+         
+        });
+        arrowEmitter.startFollow(arrow);
+        }
+
+        if(counter > 100)
+        {
+            canShoot = true; 
+            counter = 0; 
+        }
+
+        if (cursors.left.isDown) {
+        player.setVelocityX(-160);
+        player.anims.play('left', true);
+        playerDirection = -1; 
+        }
+        else if (cursors.right.isDown) {
+        player.setVelocityX(160);
+        player.anims.play('right', true);
+        playerDirection = 1; 
+        }
+    else {
+    player.setVelocityX(0);
+    player.anims.play('turn');
+    }
+        if (cursors.up.isDown && player.body.touching.down) {
+        player.setVelocityY(-200);
+        }
+
     }
 
 </script>

@@ -1,3 +1,5 @@
+
+
 function checkPlayerMove(){
 
     if (cursors.left.isDown) {
@@ -17,10 +19,3 @@ if (cursors.up.isDown && player.body.touching.down) {
     }
 };
 
-function checkFire()
-{
-    if (game.input.activePointer.isDown)
-    {
-        
-    }
-}

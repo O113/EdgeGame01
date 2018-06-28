@@ -4,10 +4,10 @@
     <meta charset="UTF-8" />
     <title>First game</title>
     <script src="assets/phaser/dist/phaser.js"></script>
-    <script src="/assets/scripts/input.js"></script>
-    <script src="/assets/scripts/createPlayer.js"></script>
-    <script src="/assets/scripts/createLevel.js"></script>
-    <script src="/assets/scripts/projectiles.js"></script>
+    <script src="assets/scripts/input.js"></script>
+    <script src="assets/scripts/createPlayer.js"></script>
+    <script src="assets/scripts/createLevel.js"></script>
+    <script src="assets/scripts/projectiles.js"></script>
     <style type="text/css">
     body {
         margin: 0;
@@ -49,10 +49,10 @@
     function preload () {
 
         this.load.image('arrow', 'assets/art/img/arrow.png'); 
-        this.load.image('sky', '/assets/sky.png');
-        this.load.image('ground','/assets/art/tiles/stone_ground_tile.png');
-        this.load.image('platform','/assets/platform.png');
-        this.load.spritesheet('dude', '/assets/dude.png', { frameWidth: 32, frameHeight: 48 });
+        this.load.image('sky', 'assets/sky.png');
+        this.load.image('ground','assets/art/tiles/stone_ground_tile.png');
+        this.load.image('platform','assets/platform.png');
+        this.load.spritesheet('dude', 'assets/dude.png', { frameWidth: 32, frameHeight: 48 });
 
         this.load.image('arc', 'assets/art/img/arc.png');
         this.load.image('particleWhiteCircle', 'assets/art/img/particleWhiteCircle.png'); 

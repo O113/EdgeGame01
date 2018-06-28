@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <title>First game</title>
-    <script src="//cdn.jsdelivr.net/npm/phaser@3.1.1/dist/phaser.js"></script>
+    <script src="assets/phaser/dist/phaser.js"></script>
     <script src="/assets/scripts/input.js"></script>
     <script src="/assets/scripts/createPlayer.js"></script>
     <script src="/assets/scripts/createLevel.js"></script>
@@ -78,8 +78,8 @@
 
             var arrow = this.physics.add.image(400, 100, 'arrow');
             console.log(arrow);
-            
             arrow.setCollideWorldBounds(true);
+            arrow.setAllowGravity(false); 
 
             emitter.startFollow(arrow);
 

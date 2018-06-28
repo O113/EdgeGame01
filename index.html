@@ -70,8 +70,8 @@
     var particles = this.add.particles('arc');
 
             var emitter = particles.createEmitter({
-                speedY: 100, 
-                scale: { start: 0.1, end: 0 },
+                speedX: 100, 
+                scale: { start: 0.2, end: 0 },
                 gravity: false,
 });
 
@@ -79,7 +79,8 @@
             var arrow = this.physics.add.image(400, 100, 'arrow');
             console.log(arrow);
             arrow.setCollideWorldBounds(true);
-            arrow.setAllowGravity(false); 
+            arrow.body.setAllowGravity(true); 
+            arrow.setVelocityX(800); 
 
             emitter.startFollow(arrow);
 

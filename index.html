@@ -17,6 +17,7 @@
 </head>
 <body>
 	<script type="text/javascript">
+		var game;
 		window.onload = function(){
 			var config = {
 				type: Phaser.AUTO,
@@ -25,7 +26,9 @@
 				physics: {
 					default: 'arcade',
 					arcade: {
-						gravity: { y:300 },
+						gravity: {
+							y: 300
+						},
 						debug:false
 					}
 				},
@@ -33,6 +36,9 @@
 					preload: preload,
 					create: create,
 					update: update
+				},
+				my_variables :{
+					test: 1
 				}
 			};
 			game = new Phaser.Game(config);

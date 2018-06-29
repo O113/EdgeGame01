@@ -1,19 +1,21 @@
 
 
-function checkPlayerMove(){
+function checkPlayerMove(obj, cursors){
 	if (cursors.left.isDown) {
-		player.setVelocityX(-160);
-		player.anims.play('left', true);
-		}
-		else if (cursors.right.isDown) {
-		player.setVelocityX(160);
-		player.anims.play('right', true);
+		obj.player.setVelocityX(-160);
+		obj.player.anims.play('left', true);
+		obj.player.direction  = -1;
+	} else if (cursors.right.isDown) {
+		obj.player.setVelocityX(160);
+		obj.player.anims.play('right', true);
+		obj.player.direction  = 1;
 	} else {
-		player.setVelocityX(0);
-		player.anims.play('turn');
+		obj.player.setVelocityX(0);
+		obj.player.anims.play('turn');
 	}
-	if (cursors.up.isDown && player.body.touching.down) {
-		player.setVelocityY(-200);
+
+	if (cursors.up.isDown && obj.player.body.touching.down) {
+		obj.player.setVelocityY(-200);
 	}
 };
 

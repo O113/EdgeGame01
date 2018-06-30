@@ -14,34 +14,6 @@
 </style>
 </head>
 <body>
-	<script type="text/javascript">
-		var game;
-		window.onload = function(){
-			var config = {
-				type: Phaser.AUTO,
-				width: 1024,
-				height: 768,
-				physics: {
-					default: 'arcade',
-					arcade: {
-						gravity: {
-							y: 300
-						},
-						debug:false
-					}
-				},
-				scene: {
-					preload: preload,
-					create: create,
-					update: update
-				},
-				my_variables :{
-					test: 1
-				}
-			};
-			game = new Phaser.Game(config);
-		}
-	</script>
     
     <script type="text/javascript">
 

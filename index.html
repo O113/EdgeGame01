@@ -1,20 +1,49 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <title>First game</title>
-    <script src="assets/phaser/dist/phaser.js"></script>
-    <script src="/assets/scripts/input.js"></script>
-    <script src="/assets/scripts/createPlayer.js"></script>
-    <script src="/assets/scripts/createLevel.js"></script>
-    <script src="/assets/scripts/projectiles.js"></script>
-    <style type="text/css">
-    body {
-        margin: 0;
-    }
+	<meta charset="UTF-8" />
+	<title>First game</title>
+	<script src="node_modules/phaser/dist/phaser.min.js"></script>
+	<script src="assets/scripts/index.js"></script>
+	<script src="assets/scripts/input.js"></script>
+	<script src="assets/scripts/createPlayer.js"></script>
+	<script src="assets/scripts/createLevel.js"></script>
+	<script src="assets/scripts/projectiles.js"></script>
+	<style type="text/css">
+	body {
+		margin: 0;
+	}
 </style>
 </head>
 <body>
+	<script type="text/javascript">
+		var game;
+		window.onload = function(){
+			var config = {
+				type: Phaser.AUTO,
+				width: 1024,
+				height: 768,
+				physics: {
+					default: 'arcade',
+					arcade: {
+						gravity: {
+							y: 300
+						},
+						debug:false
+					}
+				},
+				scene: {
+					preload: preload,
+					create: create,
+					update: update
+				},
+				my_variables :{
+					test: 1
+				}
+			};
+			game = new Phaser.Game(config);
+		}
+	</script>
     
     <script type="text/javascript">
 

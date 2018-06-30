@@ -20,46 +20,32 @@
     
     <script type="text/javascript">
 
-    var config = {
-        type: Phaser.AUTO,
-        width: 1024,
-        height: 768,
-        physics: {
-            default: 'arcade',
-            arcade: {
-                gravity: { y:300 },
-                debug:false
-            }
-        },
-        scene: {
-            preload: preload,
-            create: create,
-            update: update
-        }
-    };
-    var player; 
-    var cursors;
-    var arrow; 
-    var particle;
-    var counter = 0; 
-    var playerDirection = 1;
-    var canShoot = true;
-    var i = 0;   
-
-    var game = new Phaser.Game(config);
-
-    function preload () {
-        
-    }
-
-    function create () {
-
-    }
-
-    function update (){
-
-    }
-
+		var game;
+		window.onload = function(){
+			var config = {
+				type: Phaser.AUTO,
+				width: 1024,
+				height: 768,
+				physics: {
+					default: 'arcade',
+					arcade: {
+						gravity: {
+							y: 300
+						},
+						debug:false
+					}
+				},
+				scene: {
+					preload: preload,
+					create: create,
+					update: update
+				},
+				my_variables :{
+					test: 1
+				}
+			};
+			game = new Phaser.Game(config);
+		}
 </script>
 
 </body>

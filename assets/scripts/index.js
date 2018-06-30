@@ -2,7 +2,7 @@ function preload () {
 
 	this.load.image('arrow', 'assets/art/img/arrow.png'); 
 	this.load.image('sky', 'assets/sky.png');
-	this.load.image('courtyard', '/assets/courtyard3.png');
+	this.load.image('courtyard', 'assets/courtyard3.png');
 	this.load.image('ground','assets/art/tiles/stone_ground_tile.png');
 	this.load.image('platform','assets/platform.png');
 	this.load.spritesheet('dude', 'assets/dude.png', { frameWidth: 32, frameHeight: 48 })
@@ -15,6 +15,7 @@ function create () {
 	this.counter = 0;
 	this.cursors = this.input.keyboard.createCursorKeys();
 
+	//this.add.image(512,384,'sky').setScale(1); 
 	this.add.image(512,384,'courtyard').setScale(1);
 	
 	var platforms = this.physics.add.staticGroup();

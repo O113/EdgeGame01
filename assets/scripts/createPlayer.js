@@ -22,12 +22,6 @@ var createPlayer = function(obj, platforms){
 	});
 
 	obj.anims.create({
-		key: 'turn2',
-		frames: [ {key: 'dude2', frame: 1 } ],
-		frameRate:20,
-	});
-
-	obj.anims.create({
 		key: 'right',
 		frames: obj.anims.generateFrameNumbers('dude2', { start: 4, end: 4 } ),
 		frameRate:10,

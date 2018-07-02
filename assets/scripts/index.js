@@ -6,6 +6,7 @@ function preload () {
 	this.load.image('ground','assets/art/tiles/stone_ground_tile.png');
 	this.load.image('platform','assets/platform.png');
 	this.load.spritesheet('dude', 'assets/dude.png', { frameWidth: 32, frameHeight: 48 })
+	this.load.spritesheet('dude2', 'assets/dude2.png', { frameWidth: 51.4, frameHeight: 64 })
 
 	this.load.image('arc', 'assets/art/img/arc.png');
 	this.load.image('particleWhiteCircle', 'assets/art/img/particleWhiteCircle.png'); 		

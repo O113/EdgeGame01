@@ -9,7 +9,10 @@ function preload () {
 	this.load.spritesheet('dude2', 'assets/dude2.png', { frameWidth: 51.4, frameHeight: 64 })
 
 	this.load.image('arc', 'assets/art/img/arc.png');
-	this.load.image('particleWhiteCircle', 'assets/art/img/particleWhiteCircle.png'); 		
+	this.load.image('particleWhiteCircle', 'assets/art/img/particleWhiteCircle.png'); 	
+	
+	this.load.spritesheet('manaBottle', 'assets/manaBottle.png', {frameWidth: 100, frameHeight: 190 });
+	this.load.image('hearts', 'assets/hearts.png');
 }
 
 function create () {
@@ -21,6 +24,9 @@ function create () {
 	
 	var platforms = this.physics.add.staticGroup();
 	particles = this.add.particles('particleWhiteCircle');
+	
+	this.flask = this.physics.add.sprite(100, 450, 'manaBottle');
+	this.flask.body.setAllowGravity(false); 
 	
 	createLevel(0, platforms); 
 

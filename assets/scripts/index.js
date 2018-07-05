@@ -34,11 +34,13 @@ function create () {
 
 	this.cameras.main.startFollow(this.player);
 	this.arrows = [];
-	console.log(this.cursors)
-};
+	console.log(this.cursors);
+}
 
-function update () {		
+function update () {	
 	this.counter++;
+	console.log(this.player.x);
+	this.flask = this.physics.add.sprite(this.player.x-400,this.player.y-260, 'manaBottle').setScale(0.4);
 
 	if (this.cursors.space.isDown && this.player.canShoot) {
 		var arrow = this.physics.add.image(this.player.x, this.player.y, 'arrow');
@@ -65,8 +67,8 @@ function update () {
 	}
 
 	if(this.counter > 50) {
-		this.player.canShoot = true; 
-		this.counter = 0; 
+		this.player.canShoot = true;
+		this.counter = 0;
 	}
 
 	checkPlayerMove(this, this.cursors);

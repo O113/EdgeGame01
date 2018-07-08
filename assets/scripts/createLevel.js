@@ -19,12 +19,12 @@ function createLevel(level_nr, platforms){
 			grounds: [
 				{
 					x: 350,
-					y: 768,
+					y: 700,
 					scale: 1
 				},
 				{
 					x: 700,
-					y: 768,
+					y: 700,
 					scale: 1
 				}
 			]

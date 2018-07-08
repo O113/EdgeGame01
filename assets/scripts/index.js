@@ -7,6 +7,7 @@ function preload () {
 	this.load.image('platform','assets/platform.png');
 	this.load.spritesheet('dude', 'assets/dude.png', { frameWidth: 32, frameHeight: 48 })
 	this.load.spritesheet('dude2', 'assets/dude2.png', { frameWidth: 51.4, frameHeight: 64 })
+	this.load.spritesheet('runningDude', 'assets/runningDude.png', { frameWidth: 420, frameHeight: 394 })
 
 	this.load.image('arc', 'assets/art/img/arc.png');
 	this.load.image('particleWhiteCircle', 'assets/art/img/particleWhiteCircle.png'); 	
@@ -41,7 +42,7 @@ function update () {
 	this.counter++;
 
 	if (this.cursors.space.isDown && this.player.canShoot) {
-		var arrow = this.physics.add.image(this.player.x, this.player.y, 'arrow');
+		var arrow = this.physics.add.image(this.player.x+5, this.player.y-5, 'arrow');
 		arrow.setCollideWorldBounds(true);
 		arrow.onColide = function(){
 			console.log("collided");

@@ -24,6 +24,8 @@ function create () {
 	
 	this.flask = this.physics.add.sprite(100, 450, 'manaBottle');
 	this.flask.body.setAllowGravity(false); 
+
+	// lägg till hearts som med flask
 	
 	createLevel(0, platforms); 
 
@@ -31,11 +33,13 @@ function create () {
 
 	this.cameras.main.startFollow(this.player);
 	this.arrows = [];
-	console.log(this.cursors)
-};
+	console.log(this.cursors);
+}
 
-function update () {		
+function update () {	
 	this.counter++;
+	this.flask = this.physics.add.sprite(this.player.x-400,this.player.y-260, 'manaBottle').setScale(0.4);
+	//hearts som med flask
 
 	if (this.cursors.space.isDown && this.player.canShoot) {
 		var arrow = this.physics.add.image(this.player.x+5, this.player.y-5, 'arrow');
@@ -62,8 +66,8 @@ function update () {
 	}
 
 	if(this.counter > 50) {
-		this.player.canShoot = true; 
-		this.counter = 0; 
+		this.player.canShoot = true;
+		this.counter = 0;
 	}
 
 	checkPlayerMove(this, this.cursors);

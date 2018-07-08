@@ -36,19 +36,28 @@ function create () {
 	console.log(this.cursors);
 }
 
+var arrowCharge = 0;
+
 function update () {	
 	this.counter++;
 	this.flask = this.physics.add.sprite(this.player.x-400,this.player.y-260, 'manaBottle').setScale(0.4);
 	//hearts som med flask
-
-	if (this.cursors.space.isDown && this.player.canShoot) {
+	if(arrowCharge > 10 && !this.cursors.space.isDown){
 		var arrow = this.physics.add.image(this.player.x+5, this.player.y-5, 'arrow');
 		arrow.setCollideWorldBounds(true);
 		arrow.onColide = function(){
 			console.log("collided");
 		}
-		arrow.body.setAllowGravity(false); 
-		arrow.setVelocityX(800 * this.player.direction);
+		arrow.body.setAllowGravity(false);
+		if(arrowCharge > 50){
+			arrowCharge = 800;
+		} else {
+			arrowCharge *= 16;
+		}
+		arrow.setVelocityX(arrowCharge * this.player.direction);
+
+		arrowCharge = 0;
+
 		this.player.canShoot = false;
 
 		var arrowEmitter = particles.createEmitter({
@@ -61,6 +70,9 @@ function update () {
 		arrowEmitter.startFollow(arrow);
 		this.arrows.push(arrow)
 		console.log(this.arrows)
+
+	} else if (this.cursors.space.isDown && this.player.canShoot) {
+		arrowCharge++;		
 	} else if (this.player.canShoot && this.arrows.length > 0){
 		//this.arrows[0].parent.sprite.kill();
 	}

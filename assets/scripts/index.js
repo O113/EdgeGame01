@@ -22,7 +22,7 @@ function create () {
 	var platforms = this.physics.add.staticGroup();
 	particles = this.add.particles('particleWhiteCircle');
 	
-	this.flask = this.physics.add.sprite(100, 450, 'manaBottle');
+	this.flask = this.physics.add.sprite(100, 450, 'manaBottle').setScale(0.4);
 	this.flask.body.setAllowGravity(false); 
 
 	// lägg till hearts som med flask
@@ -38,8 +38,6 @@ function create () {
 
 function update () {	
 	this.counter++;
-	this.flask = this.physics.add.sprite(this.player.x-400,this.player.y-260, 'manaBottle').setScale(0.4);
-	//hearts som med flask
 
 	if (this.cursors.space.isDown && this.player.canShoot) {
 		var arrow = this.physics.add.image(this.player.x+5, this.player.y-5, 'arrow');
@@ -71,4 +69,6 @@ function update () {
 	}
 
 	checkPlayerMove(this, this.cursors);
+
+	this.flask.setPosition(this.player.x-400, this.player.y-200);
 }

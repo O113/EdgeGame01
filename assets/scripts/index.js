@@ -1,18 +1,15 @@
 function preload () {
 
 	this.load.image('arrow', 'assets/art/img/arrow.png'); 
-	this.load.image('sky', 'assets/sky.png');
-	this.load.image('courtyard', 'assets/courtyard3.png');
+	this.load.image('courtyard', 'assets/art/courtyard3.png');
 	this.load.image('ground','assets/art/tiles/stone_ground_tile.png');
-	this.load.image('platform','assets/platform.png');
-	this.load.spritesheet('dude', 'assets/dude.png', { frameWidth: 32, frameHeight: 48 });
-	this.load.spritesheet('dude2', 'assets/dude2.png', { frameWidth: 51.4, frameHeight: 64 });
-	this.load.spritesheet('runningDude', 'assets/runningDude.png', { frameWidth: 445, frameHeight: 373 });
+	this.load.image('platform','assets/art/platform.png');
+	this.load.spritesheet('runningDude', 'assets/art/sprites/runningDude.png', { frameWidth: 445, frameHeight: 373 });
 
 	this.load.image('arc', 'assets/art/img/arc.png');
 	this.load.image('particleWhiteCircle', 'assets/art/img/particleWhiteCircle.png'); 	
 	
-	this.load.spritesheet('manaBottle', 'assets/manaBottle.png', {frameWidth: 100, frameHeight: 190 });
+	this.load.spritesheet('manaBottle', 'assets/art/manaBottle.png', {frameWidth: 100, frameHeight: 190 });
 	this.load.image('hearts', 'assets/hearts.png');
 }
 

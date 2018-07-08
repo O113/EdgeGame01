@@ -5,9 +5,9 @@ function preload () {
 	this.load.image('courtyard', 'assets/courtyard3.png');
 	this.load.image('ground','assets/art/tiles/stone_ground_tile.png');
 	this.load.image('platform','assets/platform.png');
-	this.load.spritesheet('dude', 'assets/dude.png', { frameWidth: 32, frameHeight: 48 })
-	this.load.spritesheet('dude2', 'assets/dude2.png', { frameWidth: 51.4, frameHeight: 64 })
-	this.load.spritesheet('runningDude', 'assets/runningDude.png', { frameWidth: 420, frameHeight: 394 })
+	this.load.spritesheet('dude', 'assets/dude.png', { frameWidth: 32, frameHeight: 48 });
+	this.load.spritesheet('dude2', 'assets/dude2.png', { frameWidth: 51.4, frameHeight: 64 });
+	this.load.spritesheet('runningDude', 'assets/runningDude.png', { frameWidth: 445, frameHeight: 373 });
 
 	this.load.image('arc', 'assets/art/img/arc.png');
 	this.load.image('particleWhiteCircle', 'assets/art/img/particleWhiteCircle.png'); 	
@@ -20,7 +20,6 @@ function create () {
 	this.counter = 0;
 	this.cursors = this.input.keyboard.createCursorKeys();
 
-	//this.add.image(512,384,'sky').setScale(1); 
 	this.add.image(512,384,'courtyard').setScale(1);
 	
 	var platforms = this.physics.add.staticGroup();

@@ -17,13 +17,13 @@ var createPlayer = function(obj, platforms){
 	
 	obj.anims.create({
 		key: 'turn',
-		frames: [ {key: 'runningDude', frame: 7 } ],
+		frames: [ {key: 'runningDude', frame: 8 } ],
 		frameRate:20,
 	});
 
 	obj.anims.create({
 		key: 'right',
-		frames: obj.anims.generateFrameNumbers('runningDude', { start: 10, end: 17 } ),
+		frames: obj.anims.generateFrameNumbers('runningDude', { start: 9, end: 17 } ),
 		frameRate:10,
 		repeat: -1
 	});

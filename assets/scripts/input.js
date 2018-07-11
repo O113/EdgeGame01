@@ -16,6 +16,14 @@ function checkPlayerMove(obj, cursors){
 
 	if (cursors.up.isDown && obj.player.body.touching.down) {
 		obj.player.setVelocityY(-200);
+
+		if(cursors.right.isDown){
+			obj.player.anims.play('jumpRight');
+		}
+
+		if(cursors.left.isDown){
+			obj.player.anims.play('jumpLeft');
+		}
 	}
 };
 

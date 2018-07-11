@@ -1,7 +1,7 @@
 
 
 var createPlayer = function(obj, platforms){
-	obj.player = obj.physics.add.sprite(100, 450, 'runningDude').setScale(0.1);
+	obj.player = obj.physics.add.sprite(50, 450, 'runningDude2');
 	obj.physics.add.collider(obj.player, platforms);
 	obj.player.setCollideWorldBounds(true);
 	obj.player.canShoot = true;
@@ -23,9 +23,23 @@ var createPlayer = function(obj, platforms){
 
 	obj.anims.create({
 		key: 'right',
-		frames: obj.anims.generateFrameNumbers('runningDude', { start: 9, end: 17 } ),
+		frames: obj.anims.generateFrameNumbers('runningDude', { start: 9, end: 16 } ),
 		frameRate:10,
 		repeat: -1
+	});
+
+	obj.anims.create({
+		key: 'jumpLeft',
+		frames: obj.anims.generateFrameNumbers('runningDude', { start: 17, end: 23 } ),
+		frameRate:5,
+		repeat: 1
+	});
+
+	obj.anims.create({
+		key: 'jumpRight',
+		frames: obj.anims.generateFrameNumbers('runningDude', { start: 24, end: 30 } ),
+		frameRate:5,
+		repeat: 1
 	});
 
 	

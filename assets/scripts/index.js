@@ -5,7 +5,7 @@ function preload () {
 	this.load.image('courtyard', 'assets/art/courtyard3.png');
 	this.load.image('ground','assets/art/tiles/stone_ground_tile.png');
 	this.load.image('platform','assets/art/platform.png');
-	this.load.spritesheet('runningDude', 'assets/art/sprites/runningDude.png', { frameWidth: 445, frameHeight: 373 });
+	this.load.spritesheet('runningDude', 'assets/art/sprites/runningDude2.png', { frameWidth: 67, frameHeight: 44 });
 
 	this.load.image('arc', 'assets/art/img/arc.png');
 	this.load.image('particleWhiteCircle', 'assets/art/img/particleWhiteCircle.png'); 	
@@ -34,7 +34,6 @@ function create () {
 
 	this.cameras.main.startFollow(this.player);
 	this.arrows = [];
-	console.log(this.cursors);
 }
 
 var arrowCharge = 0;

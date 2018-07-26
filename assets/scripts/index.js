@@ -56,6 +56,11 @@ function update () {
 	this.staminaBar.setPosition(this.player.x-350+(this.player.currStaminaScale * 100),this.player.y-235).setScale(this.player.currStaminaScale, 1);
 	this.manaBar.setPosition(this.player.x-350 +(this.player.currManaScale * 100),this.player.y-210).setScale(this.player.currManaScale, 1);
 
+	if(this.player.currStamina < this.player.maximumStamina)
+	{
+		this.player.currStamina += 0.3; 
+	}
+
 	if(arrowCharge > 10 && !this.cursors.space.isDown){
 		var arrow = this.physics.add.image(this.player.x+5, this.player.y-5, 'arrow');
 		arrow.setCollideWorldBounds(true);

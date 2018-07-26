@@ -12,6 +12,11 @@ function preload () {
 	
 	this.load.spritesheet('manaBottle', 'assets/art/manaBottle.png', {frameWidth: 100, frameHeight: 190 });
 	this.load.image('hearts', 'assets/hearts.png');
+
+	this.load.image('uiFace', 'assets/art/uiFace.png'); 
+	this.load.image('healthBar', 'assets/art/healthBar.png');
+	this.load.image('manaBar', 'assets/art/manaBar.png');
+	this.load.image('staminaBar', 'assets/art/staminaBar.png');
 }
 
 function create () {
@@ -21,12 +26,13 @@ function create () {
 	this.add.image(512,384,'courtyard').setScale(1);
 	
 	var platforms = this.physics.add.staticGroup();
-	particles = this.add.particles('particleWhiteCircle');
-	
-	this.flask = this.physics.add.sprite(100, 450, 'manaBottle').setScale(0.4);
-	this.flask.body.setAllowGravity(false); 
 
-	// lägg till hearts som med flask
+	particles = this.add.particles('particleWhiteCircle');
+
+	this.uiFace = this.add.image(0, 475, 'uiFace'); 
+	this.healthBar = this.add.image(150, 450, 'healthBar'); 
+	this.staminaBar = this.add.image(150, 475, 'staminaBar'); 
+	this.manaBar = this.add.image(150, 500, 'manaBar'); 
 	
 	createLevel(0, platforms); 
 
@@ -40,8 +46,12 @@ var arrowCharge = 0;
 
 function update () {	
 	this.counter++;
-	this.flask.setPosition(this.player.x-400,this.player.y-260);
-	//hearts som med flask
+
+	this.uiFace.setPosition(this.player.x-400,this.player.y-235);
+	this.healthBar.setPosition(this.player.x-250,this.player.y-260);
+	this.staminaBar.setPosition(this.player.x-250,this.player.y-235);
+	this.manaBar.setPosition(this.player.x-250,this.player.y-210);
+
 	if(arrowCharge > 10 && !this.cursors.space.isDown){
 		var arrow = this.physics.add.image(this.player.x+5, this.player.y-5, 'arrow');
 		arrow.setCollideWorldBounds(true);

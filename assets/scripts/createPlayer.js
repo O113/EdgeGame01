@@ -6,6 +6,22 @@ var createPlayer = function(obj, platforms){
 	obj.player.setCollideWorldBounds(true);
 	obj.player.canShoot = true;
 
+	/*obj.player.currHP = 100; 
+	obj.player.maximumHP = 100; 
+	obj.player.currHPScale = currHP/maximumHP;
+
+	obj.player.currMana = 100; 
+	obj.player.maximumMana = 100; 
+	obj.player.currManaScale = currMana/maximumMana;
+
+	obj.player.currHP = 100; 
+	obj.player.maximumHP = 100; 
+	obj.player.currHPScale = currHP/maximumHP;
+
+	obj.player.currStamina = 100; 
+	obj.player.maximumStamina = 100; 
+	obj.player.currStaminaScale = currStamina/maximumStamina;*/
+
 	obj.player.direction = 1;
 
 	obj.anims.create ({

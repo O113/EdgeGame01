@@ -47,10 +47,14 @@ var arrowCharge = 0;
 function update () {	
 	this.counter++;
 
+	this.player.currHPScale = this.player.currHP/this.player.maximumHP;
+	this.player.currManaScale = this.player.currMana/this.player.maximumMana;
+	this.player.currStaminaScale = this.player.currStamina/this.player.maximumStamina; 
+
 	this.uiFace.setPosition(this.player.x-400,this.player.y-235);
-	this.healthBar.setPosition(this.player.x-250,this.player.y-260);
-	this.staminaBar.setPosition(this.player.x-250,this.player.y-235);
-	this.manaBar.setPosition(this.player.x-250,this.player.y-210);
+	this.healthBar.setPosition(this.player.x-350 +(this.player.currHPScale * 100),this.player.y-260).setScale(this.player.currHPScale, 1);
+	this.staminaBar.setPosition(this.player.x-350+(this.player.currStaminaScale * 100),this.player.y-235).setScale(this.player.currStaminaScale, 1);
+	this.manaBar.setPosition(this.player.x-350 +(this.player.currManaScale * 100),this.player.y-210).setScale(this.player.currManaScale, 1);
 
 	if(arrowCharge > 10 && !this.cursors.space.isDown){
 		var arrow = this.physics.add.image(this.player.x+5, this.player.y-5, 'arrow');
@@ -65,6 +69,7 @@ function update () {
 			arrowCharge *= 16;
 		}
 		arrow.setVelocityX(arrowCharge * this.player.direction);
+		this.player.currStamina -= 10; 
 
 		arrowCharge = 0;
 

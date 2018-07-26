@@ -54,6 +54,37 @@ var createPlayer = function(obj, platforms){
 		repeat: 1
 	});
 
-	
+};
 
+var createEnemy = function(obj, platforms){
+	obj.enemy = obj.physics.add.sprite(50, 450, 'enemySkull');
+	obj.physics.add.collider(obj.enemy, platforms);
+	obj.enemy.setCollideWorldBounds(true);
+	obj.enemy.canShoot = true;
+
+	obj.enemy.currHP = 100; 
+	obj.enemy.maximumHP = 100; 
+
+	obj.enemy.currMana = 100; 
+	obj.enemy.maximumMana = 100; 
+
+	obj.enemy.currStamina = 100; 
+	obj.enemy.maximumStamina = 100; 
+
+	obj.enemy.direction = 1;
+
+	obj.anims.create ({
+		key: 'enemyLeft',
+		frames: obj.anims.generateFrameNumbers('enemySkull', { start: 0, end: 1}),
+		frameRate: 10,
+		repeat: -1
+	});
+
+	obj.anims.create({
+		key: 'enemyRight',
+		frames: obj.anims.generateFrameNumbers('enemySkull', { start: 2, end: 3 } ),
+		frameRate:10,
+		repeat: -1
+	});
+	
 };

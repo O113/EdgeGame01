@@ -42,4 +42,3 @@ function checkPlayerMove(obj, cursors){
 		}
 	}
 };
-

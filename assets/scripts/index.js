@@ -18,6 +18,8 @@ function preload () {
 	this.load.image('healthBar', 'assets/art/healthBar.png');
 	this.load.image('manaBar', 'assets/art/manaBar.png');
 	this.load.image('staminaBar', 'assets/art/staminaBar.png');
+
+	this.load.spritesheet('enemySkull', 'assets/art/sprites/enemySkull.png', {frameWidth: 197, frameHeight: 153}); 
 }
 
 function create () {
@@ -42,6 +44,8 @@ function create () {
 
 	this.cameras.main.startFollow(this.player);
 	this.arrows = [];
+
+	createEnemy(this, platforms); 
 }
 
 var arrowCharge = 0;
@@ -106,4 +110,5 @@ function update () {
 	}
 
 	checkPlayerMove(this, this.cursors);
+	this.enemy.anims.play('enemyLeft', true); 
 }

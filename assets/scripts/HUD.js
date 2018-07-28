@@ -1,4 +1,4 @@
-function loadHUD(uiBackground, uiFace, healthBar, staminaBar, manaBar) {
+function loadHUD(obj) {
     obj.uiBackground = obj.add.image(0, 475, 'uiBackground');
 	obj.uiFace = obj.add.image(0, 475, 'uiFace'); 
 	obj.healthBar = obj.add.image(150, 450, 'healthBar'); 
@@ -6,7 +6,7 @@ function loadHUD(uiBackground, uiFace, healthBar, staminaBar, manaBar) {
 	obj.manaBar = obj.add.image(150, 500, 'manaBar'); 
 }
 
-function createHUD(uiBackground, uiFace, healthBar, staminaBar, manaBar) {
+function createHUD(obj) {
     obj.player.currHPScale = obj.player.currHP/obj.player.maximumHP;
 	obj.player.currManaScale = obj.player.currMana/obj.player.maximumMana;
 	obj.player.currStaminaScale = obj.player.currStamina/obj.player.maximumStamina; 

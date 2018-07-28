@@ -34,7 +34,7 @@ function create () {
 
 	createLevel(0, platforms); 
 
-	loadHUD();
+	loadHUD(this);
 
 	createPlayer(this, platforms); 
 
@@ -49,7 +49,7 @@ var arrowCharge = 0;
 function update () {	
 	this.counter++;
 
-	createHUD();
+	createHUD(this);
 
 	if(this.player.currStamina < this.player.maximumStamina)
 	{
